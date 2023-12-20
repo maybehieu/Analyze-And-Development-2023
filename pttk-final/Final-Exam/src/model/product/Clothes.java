@@ -11,7 +11,7 @@ public class Clothes extends Product {
 	public Clothes(int iD, String name, String summary, String releaseDate, String category, Employee employee,
 			Provider provider, int iD2, String type, String brand, String color, String gender) {
 		super(iD, name, summary, releaseDate, category, employee, provider);
-		ID = iD2;
+		ID = iD;
 		this.type = type;
 		this.brand = brand;
 		this.color = color;

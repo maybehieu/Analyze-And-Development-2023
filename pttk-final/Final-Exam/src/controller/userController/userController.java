@@ -346,7 +346,7 @@ public class userController extends HttpServlet {
 			writer.close();
 			return;
 		} else {
-			String bookItemId = request.getParameter("bookItemId");
+			String bookItemId = request.getParameter("productItemId");
 			int quantity = Integer.parseInt(request.getParameter("quantity"));
 			// Bookitem bookItem =
 			// bookitemDAO.getBookitemByID(Integer.parseInt(bookItemId));
@@ -691,12 +691,14 @@ public class userController extends HttpServlet {
 		if (category.equals("B")) {
 			String author = request.getParameter("author");
 			String bookCategory = request.getParameter("bookCategory");
+			System.out.println(bookCategory);
 			int pageNum = Integer.parseInt(request.getParameter("pageNum"));
 			int volume = Integer.parseInt(request.getParameter("volume"));
+			int ID = productDAO.getMaxIDProduct()+1;
 			int bookID = productDAO.getMaxIDBook()+1;
 //			Book product = new Book(1, name, summary, releaseDate, category, employee, provider, 1, author,
 //					bookCategory, pageNum, volume);
-			Book product = new Book(1, name, summary, releaseDate, category, employee, provider, bookID, author,
+			Book product = new Book(ID, name, summary, releaseDate, category, employee, provider, bookID, author,
 					bookCategory, pageNum, volume);
 			productDAO.addProductBook(product);
 			System.out.println("Add book done ");
@@ -706,10 +708,11 @@ public class userController extends HttpServlet {
 			String phonebrand = request.getParameter("phoneBrand");
 			String model = request.getParameter("model");
 			String spec = request.getParameter("spec");
+			int ID = productDAO.getMaxIDProduct()+1;
 			int phoneID = productDAO.getMaxIDPhone()+1;
 //			model.product.Phone product = new model.product.Phone(1, name, summary, releaseDate, category, employee,
 //					provider, 1, phonetype, phonebrand, model, spec);
-			model.product.Phone product = new model.product.Phone(1, name, summary, releaseDate, category, employee,
+			model.product.Phone product = new model.product.Phone(ID, name, summary, releaseDate, category, employee,
 					provider, phoneID, phonetype, phonebrand, model, spec);
 			productDAO.addProductPhone(product);
 			System.out.println("Add P done ");
@@ -718,10 +721,11 @@ public class userController extends HttpServlet {
 			String clothesbrand = request.getParameter("clothesBrand");
 			String color = request.getParameter("color");
 			String gender = request.getParameter("gender");
+			int ID = productDAO.getMaxIDProduct()+1;
 			int clothesID = productDAO.getMaxIDClothes()+1;
 //			Clothes product = new Clothes(1, name, summary, releaseDate, category, employee, provider, 1, clothestype,
 //					clothesbrand, color, gender);
-			Clothes product = new Clothes(1, name, summary, releaseDate, category, employee, provider, clothesID, clothestype,
+			Clothes product = new Clothes(ID, name, summary, releaseDate, category, employee, provider, clothesID, clothestype,
 					clothesbrand, color, gender);
 			productDAO.addProductClothes(product);
 			System.out.println("Add C done ");
@@ -739,7 +743,7 @@ public class userController extends HttpServlet {
 			response.sendRedirect("account.jsp");
 			return;
 		}
-		int ID = Integer.parseInt(request.getParameter("ISBN"));
+		int ID = Integer.parseInt(request.getParameter("ID"));
 		int type = productDAO.getType(ID);
 		Product product = productDAO.getProductByID(ID);
 		request.setAttribute("ID", ID);
@@ -893,7 +897,7 @@ public class userController extends HttpServlet {
 			response.sendRedirect("account.jsp");
 			return;
 		}
-		int ID = Integer.parseInt(request.getParameter("prodID"));
+		int ID = Integer.parseInt(request.getParameter("ID"));
 		ProductItem productitem = productItemDAO.getProductItem(ID);
 		request.setAttribute("ID", String.valueOf(productitem.getID()));
 		request.setAttribute("prodID", ID);

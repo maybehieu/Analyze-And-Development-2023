@@ -43,7 +43,7 @@ public class ProductItemDAOImp implements ProductItemDAO {
 	private static final String DELETE_PITEM = "delete from productitem where id = ?;";
 	private static final String INSERT_NEW_PVD = "insert into provider " + "(address, name) values" + " (?,?);";
 	private static final String SELECT_MAX_ID_PVD = "SELECT MAX(id) FROM provider;";
-	private static final String SELECT_PROD_BY_ID = "select * from book where ID =?;";
+	private static final String SELECT_PROD_BY_ID = "select * from product where ID =?;";
 	private static final String UPDATE_PVD = "update provider set address=?, name=?, where ID=?;";
 	private static final String SELECT_PVD_BY_ID = "select * from provider where id =?";
 	private static final String SELECT_EMP_BY_ID = "select * from employee where id =?";
@@ -437,9 +437,9 @@ public class ProductItemDAOImp implements ProductItemDAO {
 			while (rs.next()) {
 				int employeeID = rs.getInt("employeeID");
 				Employee employee = getEmployee(employeeID);
-				int providerID = rs.getInt("PublisherID");
+				int providerID = rs.getInt("providerID");
 				Provider provider = getProvider(providerID);
-				String name = rs.getString("title");
+				String name = rs.getString("name");
 				String summary = rs.getString("summary");
 				String category = rs.getString("category");
 				String releaseDate = rs.getString("releaseDate");

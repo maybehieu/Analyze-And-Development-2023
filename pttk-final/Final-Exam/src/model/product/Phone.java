@@ -11,17 +11,17 @@ public class Phone extends Product{
 	public Phone(int iD, String name, String summary, String releaseDate, String category, Employee employee,
 			Provider provider, int iD2, String type, String brand, String model, String spec) {
 		super(iD, name, summary, releaseDate, category, employee, provider);
-		this.ID = iD2;
+		this.ID = iD;
 		this.type = type;
 		this.brand = brand;
 		this.model = model;
 		this.spec = spec;
 	}
 	public int getID() {
-		return ID;
+		return this.ID;
 	}
 	public void setID(int iD) {
-		ID = iD;
+		this.ID = iD;
 	}
 	public String getType() {
 		return type;

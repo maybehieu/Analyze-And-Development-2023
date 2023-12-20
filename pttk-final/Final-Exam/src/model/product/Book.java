@@ -11,7 +11,7 @@ public class Book extends Product {
 	public Book(int iD, String name, String summary, String releaseDate, String category, Employee employee,
 			Provider provider, int iD2, String author, String bookCategory, int pageNum, int volume) {
 		super(iD, name, summary, releaseDate, category, employee, provider);
-		this.ID = iD2;
+		this.ID = iD;
 		this.author = author;
 		this.bookCategory = bookCategory;
 		this.pageNum = pageNum;

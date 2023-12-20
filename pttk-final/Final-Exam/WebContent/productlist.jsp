@@ -89,18 +89,18 @@
 
             <!-- Featured Products -->
             <div class="small-container">
-                <h2 class="title">Comics</h2>
+                <h2 class="title">Books</h2>
                 <div class="row">
-                    <c:forEach items="${listComics}" var="product">
+                    <c:forEach items="${listBooks}" var="product">
                         <div class="col-3">
                             <div class="card">
                                 <img class="card-img-top" src="images/category-1.jpg" alt="img product">
                                 <div class="card-body">
-                                    <h4 class="card-title">${product.book.title}</h4>
-                                    <h6 class="card-text">${product.book.summary}</h6>
+                                    <h4 class="card-title">${product.product.name}</h4>
+                                    <h6 class="card-text">${product.product.summary}</h6>
                                     <h5 class="card-text">${product.price}đ</h5>
                                     <div class="btn btn-primary text-center" style="margin: 0px 0px;"
-                                        onclick="addbook(${product.ID}, 1, 'book')">Add
+                                        onclick="addproduct(${product.ID}, 1, 'book')">Add
                                         to Cart</div>
                                     <form action="productdetails">
                                         <input type="hidden" name="id" value=${product.ID} />
@@ -116,18 +116,18 @@
             </div>
 
             <div class="small-container">
-                <h2 class="title">Text Book</h2>
+                <h2 class="title">Phones</h2>
                 <div class="row">
-                    <c:forEach items="${listTextBook}" var="product">
+                    <c:forEach items="${listPhones}" var="product">
                         <div class="col-3">
                             <div class="card">
                                 <img class="card-img-top" src="images/category-3.jpg" alt="img product">
                                 <div class="card-body">
-                                    <h4 class="card-title">${product.book.title}</h4>
-                                    <h6 class="card-text">${product.book.summary}</h6>
+                                    <h4 class="card-title">${product.product.name}</h4>
+                                    <h6 class="card-text">${product.product.summary}</h6>
                                     <h5 class="card-text">${product.price}đ</h5>
                                     <div class="btn btn-primary text-center" style="margin: 0px 0px;"
-                                        onclick="addbook(${product.ID}, 1, 'book')">Add
+                                        onclick="addproduct(${product.ID}, 1, 'book')">Add
                                         to Cart</div>.
                                     <form action="productdetails">
                                         <input type="hidden" name="id" value=${product.ID} />
@@ -141,18 +141,18 @@
                 </div>
             </div><!-- Featured Products -->
             <div class="small-container">
-                <h2 class="title">Light Novel</h2>
+                <h2 class="title">Clothes</h2>
                 <div class="row">
-                    <c:forEach items="${listLightNovel}" var="product">
+                    <c:forEach items="${listClothes}" var="product">
                         <div class="col-3">
                             <div class="card">
                                 <img class="card-img-top" src="images/category-2.jpg" alt="img product">
                                 <div class="card-body">
-                                    <h4 class="card-title">${product.book.title}</h4>
-                                    <h6 class="card-text">${product.book.summary}</h6>
+                                    <h4 class="card-title">${product.product.name}</h4>
+                                    <h6 class="card-text">${product.product.summary}</h6>
                                     <h5 class="card-text">${product.price}đ</h5>
                                     <div class="btn btn-primary text-center" style="margin: 0px 0px;"
-                                        onclick="addbook(${product.ID}, 1, 'book')">Add
+                                        onclick="addproduct(${product.ID}, 1, 'book')">Add
                                         to Cart</div>
                                     <form action="productdetails">
                                         <input type="hidden" name="id" value=${product.ID} />
@@ -224,12 +224,12 @@
             <!-- javascript -->
 
             <script>
-                function addbook(bookItemId, quantity, type) {
+                function addproduct(productItemId, quantity, type) {
                     $.ajax({
-                        url: 'addbook',
+                        url: 'addproduct',
                         type: 'POST',
                         data: {
-                            bookItemId,
+                            productItemId,
                             type,
                             quantity: quantity
                         },

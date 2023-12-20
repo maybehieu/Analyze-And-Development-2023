@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Edit Bookitem</title>
+<title>Edit ProductItem</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
@@ -17,13 +17,13 @@
 	  <form action="processedititem" method="POST">
 	    <div class="title">	
 	      <i class="fas fa-pencil-alt"></i> 
-	      <h2>Edit Bookitem Information</h2>
+	      <h2>Edit ProductItem Information</h2>
 	    </div>
 	    <div class="info">
 	    	<div class="left-entry">
-	    	  <p>ISBN</p><input type="text" name="ISBN" placeholder="ISBN" required value="${ISBN}" readonly>
-	      	  <p>ID</p><input type="text" name="ID" placeholder="ID" required value="${ID}" readonly>
-		      <p>Years</p><input type="text" name="uploadDate" placeholder="Uploaded Date" required readonly value="${uploadDate}">
+	    	  <p>ID</p><input type="text" name="ID" placeholder="ID" required value="${ID}" readonly>
+	      	  <p>Prod ID</p><input type="text" name="prodID" placeholder="prodID" required value="${prodID}" readonly>
+		      <p>Added Date</p><input type="text" name="addedDate" placeholder="Added Date" required readonly value="${addedDate}">
 		      <p>Price</p><input type="text" name="price" placeholder="Price" required value="${price}"> 
 		      <p>Discount</p><input type="text" name="discount" placeholder="Discount" required value="${discount}">
 		      <p>Instock</p><input type="text" name="inStock" placeholder="Instock" required value="${inStock}">

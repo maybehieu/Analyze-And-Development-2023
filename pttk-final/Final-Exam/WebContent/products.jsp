@@ -69,17 +69,17 @@
 
                     </div>
                     <div class="col-8">
-                        <h1>${bookitem.book.title}</h1>
-                        <h2> - ${bookitem.book.author.name}</h2>
-                        <h4>Price: ${bookitem.price}đ</h4>
-                        <h5 style="color: red;"> (-${bookitem.discount}đ)</h5>
-                        <h4 style="color: green;">Instock: ${bookitem.inStock} pcs</h4>
-                        <input id="bookquantity" type="number" value="1">
-                        <a onclick="addbook(${bookitem.ID}, 1, 'book')" class="btn">Add To Cart</a>
+                        <h1>${productitem.product.name}</h1>
+                        <h2> - ${productitem.product.name}</h2>
+                        <h4>Price: ${productitem.price}đ</h4>
+                        <h5 style="color: red;"> (-${productitem.discount}đ)</h5>
+                        <h4 style="color: green;">Instock: ${productitem.inStock} pcs</h4>
+                        <input id="productquantity" type="number" value="1">
+                        <a onclick="addproduct(${productitem.ID}, 1, 'book')" class="btn">Add To Cart</a>
 
                         <h3>Summary:</h3>
                         <br>
-                        <p>${bookitem.book.summary}.</p>
+                        <p>${productitem.product.summary}.</p>
                     </div>
                 </div>
             </div>
@@ -174,13 +174,13 @@
                 }
             </script>
             <script>
-                function addbook(bookItemId, quant, type) {
-                    var quantity = document.getElementById("bookquantity").value;
+                function addproduct(productItemId, quant, type) {
+                    var quantity = document.getElementById("productquantity").value;
                     $.ajax({
-                        url: 'addbook',
+                        url: 'addproduct',
                         type: 'POST',
                         data: {
-                            bookItemId,
+                            productItemId,
                             type,
                             quantity
                         },

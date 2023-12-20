@@ -27,6 +27,8 @@ public interface ProductDAO {
 	
 	public void editClothes(Clothes clothes);
 	
+	public int getMaxIDProduct();
+	
 	public int getMaxIDBook();
 	
 	public int getMaxIDPhone();

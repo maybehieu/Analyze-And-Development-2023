@@ -40,7 +40,7 @@ public class ProductDAOImp implements ProductDAO {
 			+ " (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	private static final String INSERT_NEW_PVD = "insert into provider " + "(address, name) values" + " (?,?);";
 	private static final String SELECT_MAX_ID_PVD = "SELECT MAX(id) FROM provider;";
-	private static final String SELECT_PROD_BY_ID = "select * from book where ID =?;";
+	private static final String SELECT_PROD_BY_ID = "select * from product where ID =?;";
 	private static final String CHECK_TYPES_B = "select * from product where ID =? and bookID is not null;";
 	private static final String CHECK_TYPES_P = "select * from product where ID =? and phoneID is not null;";
 	private static final String CHECK_TYPES_C = "select * from product where ID =? and clothesID is not null;";
@@ -65,6 +65,7 @@ public class ProductDAOImp implements ProductDAO {
 	private static final String SELECT_BIRTH_BY_ID = "SELECT * from birth where id = ?;";
 	private static final String SELECT_PHONE_BY_ID = "SELECT * from phone where id = ?;";
 	private static final String SEARCH_PRODS = "SELECT ID FROM product WHERE name LIKE '%" + "?" + "%'";
+	private static final String SELECT_MAX_ID_PROD = "SELECT MAX(ID) FROM product;";
 	private static final String SELECT_MAX_ID_BOOK = "SELECT MAX(bookID) FROM product;";
 	private static final String SELECT_MAX_ID_PHONE = "SELECT MAX(phoneID) FROM product;";
 	private static final String SELECT_MAX_ID_CLOTH = "SELECT MAX(clothesID) FROM product;";
@@ -482,7 +483,7 @@ public class ProductDAOImp implements ProductDAO {
 			preparedStatement.setString(3, product.getName());
 			preparedStatement.setString(4, product.getSummary());
 			preparedStatement.setString(5, product.getReleaseDate());
-			preparedStatement.setString(6, product.getCategory());
+			preparedStatement.setString(6, product.getBookCategory());
 			preparedStatement.setInt(7, product.getID());
 			preparedStatement.setString(8, product.getAuthor());
 			preparedStatement.setString(9, product.getCategory());
@@ -580,6 +581,7 @@ public class ProductDAOImp implements ProductDAO {
 				int bookID = rs.getInt("bookID");
 				String author = rs.getString("author");
 				String bookCategory = rs.getString("bookCategory");
+				System.out.println("bookCate: " + bookCategory);
 				int pageNum = rs.getInt("pageNum");
 				int volume = rs.getInt("volume");
 				products.add(new Book(ID, name, summary, releaseDate, category, employee, provider, bookID, author,
@@ -605,6 +607,7 @@ public class ProductDAOImp implements ProductDAO {
 			// Step 4: Process the ResultSet object.
 			while (rs.next()) {
 				int ID = rs.getInt("ID");
+				System.out.println("Phone ID: " + ID);
 				String name = rs.getString("name");
 				String summary = rs.getString("summary");
 				String releaseDate = rs.getString("releaseDate");
@@ -739,9 +742,9 @@ public class ProductDAOImp implements ProductDAO {
 			while (rs.next()) {
 				int employeeID = rs.getInt("employeeID");
 				Employee employee = getEmployee(employeeID);
-				int providerID = rs.getInt("PublisherID");
+				int providerID = rs.getInt("providerID");
 				Provider provider = getProvider(providerID);
-				String name = rs.getString("title");
+				String name = rs.getString("name");
 				String summary = rs.getString("summary");
 				String category = rs.getString("category");
 				String releaseDate = rs.getString("releaseDate");
@@ -769,9 +772,9 @@ public class ProductDAOImp implements ProductDAO {
 			while (rs.next()) {
 				int employeeID = rs.getInt("employeeID");
 				Employee employee = getEmployee(employeeID);
-				int providerID = rs.getInt("PublisherID");
+				int providerID = rs.getInt("providerID");
 				Provider provider = getProvider(providerID);
-				String name = rs.getString("title");
+				String name = rs.getString("name");
 				String summary = rs.getString("summary");
 				String category = rs.getString("category");
 				String releaseDate = rs.getString("releaseDate");
@@ -806,9 +809,9 @@ public class ProductDAOImp implements ProductDAO {
 			while (rs.next()) {
 				int employeeID = rs.getInt("employeeID");
 				Employee employee = getEmployee(employeeID);
-				int providerID = rs.getInt("PublisherID");
+				int providerID = rs.getInt("providerID");
 				Provider provider = getProvider(providerID);
-				String name = rs.getString("title");
+				String name = rs.getString("name");
 				String summary = rs.getString("summary");
 				String category = rs.getString("category");
 				String releaseDate = rs.getString("releaseDate");
@@ -843,9 +846,9 @@ public class ProductDAOImp implements ProductDAO {
 			while (rs.next()) {
 				int employeeID = rs.getInt("employeeID");
 				Employee employee = getEmployee(employeeID);
-				int providerID = rs.getInt("PublisherID");
+				int providerID = rs.getInt("providerID");
 				Provider provider = getProvider(providerID);
-				String name = rs.getString("title");
+				String name = rs.getString("name");
 				String summary = rs.getString("summary");
 				String category = rs.getString("category");
 				String releaseDate = rs.getString("releaseDate");
@@ -887,6 +890,20 @@ public class ProductDAOImp implements ProductDAO {
 			e.printStackTrace();
 		}
 		return products;
+	}
+	
+	public int getMaxIDProduct() {
+		int id = 0;
+		try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SELECT_MAX_ID_PROD)) {
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+            	id = rs.getInt("MAX(ID)");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		return id;
 	}
 	
 	public int getMaxIDBook() {

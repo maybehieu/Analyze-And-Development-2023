@@ -65,8 +65,8 @@ style="position: absolute; top: 1rem; right: 1rem; z-index:100; background-color
                     <div class="row"
                         style="display: flex; align-items: center; flex-wrap: wrap; justify-content:  space-around;">
                         <div class="col-4">
-                            <h1>My Ecommerce Bookstore</h1>
-                            <p>All of books you want...</p>
+                            <h1>My Ecommerce Store</h1>
+                            <p>All of product you want...</p>
                             <!-- <a href="" class="btn">Explore Now &#8594;</a> -->
                         </div>
                         <div class="col-4">
@@ -78,7 +78,7 @@ style="position: absolute; top: 1rem; right: 1rem; z-index:100; background-color
 
             <!-- Featured Products -->
             <div class="small-container">
-                <h2 class="title">Search Book</h2>
+                <h2 class="title">Search Product</h2>
                 <div class="row">
                     <c:forEach items="${bookitems}" var="product">
                         <div class="col-3">

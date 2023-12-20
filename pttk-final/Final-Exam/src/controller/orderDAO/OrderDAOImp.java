@@ -925,6 +925,7 @@ public class OrderDAOImp implements OrderDAO {
 			// Step 4: Process the ResultSet object.
 			while (rs.next()) {
 				int iD = rs.getInt("ID");
+				System.out.println("Voucher id: " + iD);
 				String names = rs.getString("names");
 				String expiresDate = rs.getString("expireDate");
 				vou.add(new Voucher(iD, names, expiresDate));

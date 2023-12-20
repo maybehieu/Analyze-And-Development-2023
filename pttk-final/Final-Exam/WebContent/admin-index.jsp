@@ -233,42 +233,40 @@
 				</div>
 
 				<div id="pitem" class="tabcontent">
-					<h1 class="text-center" style="margin: 20px 0px;">Bookitem List</h1>
-					<table id="bookitem" class="table table-sm table-striped table-bordered">
+					<h1 class="text-center" style="margin: 20px 0px;">ProductItem List</h1>
+					<table id="pitem" class="table table-sm table-striped table-bordered">
 						<thead>
 							<tr>
 								<th>ProductID</th>
 								<th>ID</th>
-								<th>Title</th>
-								<th>Author</th>
+								<th>Name</th>
 								<th>Price</th>
 								<th>Discount</th>
-								<th>Uploaded Date</th>
+								<th>Added Date</th>
 								<th>InStock Amount</th>
 								<th>Action1</th>
 								<th>Action2</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${bookitem}" var="item" varStatus="i">
+							<c:forEach items="${productItem}" var="item" varStatus="i">
 								<tr>
 									<td>${item.ID}</td>
-									<td>${item.book.ID}</td>
-									<td>${item.book.title}</td>
-									<td>${item.book.author.name}</td>
+									<td>${item.product.ID}</td>
+									<td>${item.product.name}</td>
 									<td>${item.price}</td>
 									<td>${item.discount}</td>
-									<td>${item.uploadDate}</td>
+									<td>${item.addedDate}</td>
 									<td>${item.inStock}</td>
 									<td>
-										<form action="editbookitem">
-											<input type="hidden" name="ID" value=${item.book.ID} />
+										<form action="editproductitem">
+											<input type="hidden" name="ID" value=${item.ID} />
 											<input type="submit" value="Edit">
 										</form>
 									</td>
 									<td>
-										<form action="delBitem">
-											<input type="hidden" name="bookitemID" value=${item.ID} />
+										<form action="delPitem">
+											<input type="hidden" name="productitemID" value=${item.ID} />
 											<input type="submit" value="Delete">
 										</form>
 									</td>
