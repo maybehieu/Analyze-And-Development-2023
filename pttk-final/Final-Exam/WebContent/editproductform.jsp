@@ -54,22 +54,22 @@
 	      <p style="display: none;" class="P">Type of Phone</p><input type="text" name="phoneType"
 							placeholder="Type" class="P" style="display: none;" required value="${phoneType}">
 						<p style="display: none;" class="P">Brand of Phone</p><input type="text" name="phoneBrand"
-							placeholder="Brand" class="P" style="display: none;" required>
+							placeholder="Brand" class="P" style="display: none;" required value="${phoneBrand}">
 						<p style="display: none;" class="P">Model</p><input type="text" name="model" placeholder="Model"
-							class="P" style="display: none;" required>
+							class="P" style="display: none;" required value="${model}">
 						<p style="display: none;" class="P">Specification</p><input type="text" name="spec"
-							placeholder="Specification" class="P" style="display: none;" required>
+							placeholder="Specification" class="P" style="display: none;" required value="${spec}">
 
-	      <p style="display: none;" class="CM">Series Name</p><input type="text" name="nameSeries" placeholder="Series Name" class="CM" style="display: none;" required value="${nameSeries}">
-	      <p style="display: none;" class="CM">Artist Name</p><input type="text" name="artists" placeholder="Artist Name" class="CM" style="display: none;" required value="${artists}">
+	      <!-- <p style="display: none;" class="CM">Series Name</p><input type="text" name="nameSeries" placeholder="Series Name" class="CM" style="display: none;" required value="${nameSeries}">
+	      <p style="display: none;" class="CM">Artist Name</p><input type="text" name="artists" placeholder="Artist Name" class="CM" style="display: none;" required value="${artists}"> -->
 		  <p style="display: none;" class="C">Type of Clothing</p><input type="text" name="clothesType"
-		  placeholder="Type" class="C" style="display: none;" required>
+		  placeholder="Type" class="C" style="display: none;" required value="${clothesType}">
 	  <p style="display: none;" class="C">Brand of Clothing</p><input type="text" name="clothesBrand"
-		  placeholder="Brand" class="C" style="display: none;" required>
+		  placeholder="Brand" class="C" style="display: none;" required value="${clothesBrand}">
 	  <p style="display: none;" class="C">Color</p><input type="text" name="color" placeholder="Color"
-		  class="C" style="display: none;" required>
+		  class="C" style="display: none;" required value="${color}">
 	  <p style="display: none;" class="C">Gender</p><input type="text" name="gender"
-		  placeholder="Gender" class="C" style="display: none;" required>
+		  placeholder="Gender" class="C" style="display: none;" required value="${gender}">
   
 		</div>
 	    </div>
@@ -88,43 +88,43 @@
 		  var myInput = document.getElementById("category").value;
 		  console.log(myInput);
 		  if (myInput === "Book") {
-		  [].forEach.call(document.querySelectorAll('.CM'), function (el) {
+		  [].forEach.call(document.querySelectorAll('.B'), function (el) {
 			  el.required = true;
 			  el.style.display = 'block';
 			});
-		  [].forEach.call(document.querySelectorAll('.TX'), function (el) {
+		  [].forEach.call(document.querySelectorAll('.P'), function (el) {
 			  el.style.display = 'none';
 			  el.required = false;
 			});
-		  [].forEach.call(document.querySelectorAll('.LN'), function (el) {
+		  [].forEach.call(document.querySelectorAll('.C'), function (el) {
 			  el.style.display = 'none';
 			  el.required = false;
 			});
 		  }
-		  if (myInput === "LightNovel") {
-			  [].forEach.call(document.querySelectorAll('.CM'), function (el) {
+		  if (myInput === "Phone") {
+			  [].forEach.call(document.querySelectorAll('.B'), function (el) {
 				  el.style.display = 'none';
 				  el.required = false;
 				});
-			  [].forEach.call(document.querySelectorAll('.TX'), function (el) {
+			  [].forEach.call(document.querySelectorAll('.C'), function (el) {
 				  el.style.display = 'none';
 				  el.required = false;
 				});
-			  [].forEach.call(document.querySelectorAll('.LN'), function (el) {
+			  [].forEach.call(document.querySelectorAll('.P'), function (el) {
 				  el.style.display = 'block';
 				  el.required = true;
 				});
 		  }
-		  if (myInput === "TextBook") {
-			  [].forEach.call(document.querySelectorAll('.CM'), function (el) {
+		  if (myInput === "Clothes") {
+			  [].forEach.call(document.querySelectorAll('.B'), function (el) {
 				  el.style.display = 'none';
 				  el.required = false;
 				});
-			  [].forEach.call(document.querySelectorAll('.TX'), function (el) {
+			  [].forEach.call(document.querySelectorAll('.C'), function (el) {
 				  el.style.display = 'block';
 				  el.required = true;
 				});
-			  [].forEach.call(document.querySelectorAll('.LN'), function (el) {
+			  [].forEach.call(document.querySelectorAll('.P'), function (el) {
 				  el.style.display = 'none';
 				  el.required = false;
 				});

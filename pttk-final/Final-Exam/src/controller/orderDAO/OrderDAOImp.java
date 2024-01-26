@@ -744,7 +744,7 @@ public class OrderDAOImp implements OrderDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
+	}	
 
 	public Order getOrder(int ID) {
 		Order order = null;

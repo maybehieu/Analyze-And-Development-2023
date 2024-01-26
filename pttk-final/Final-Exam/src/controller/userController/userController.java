@@ -768,8 +768,8 @@ public class userController extends HttpServlet {
 			model.product.Phone phone = productDAO.getPByID(ID);
 			request.setAttribute("category", "Phone");
 			request.setAttribute("ID", String.valueOf(phone.getID()));
-			request.setAttribute("phonetype", phone.getType());
-			request.setAttribute("phonebrand", phone.getBrand());
+			request.setAttribute("phoneType", phone.getType());
+			request.setAttribute("phoneBrand", phone.getBrand());
 			request.setAttribute("model", phone.getModel());
 			request.setAttribute("spec", phone.getSpec());
 			RequestDispatcher dispatcher = request.getRequestDispatcher("editproductform.jsp");
@@ -779,8 +779,8 @@ public class userController extends HttpServlet {
 			Clothes clothes = productDAO.getCByID(ID);
 			request.setAttribute("category", "Clothes");
 			request.setAttribute("ID", String.valueOf(clothes.getID()));
-			request.setAttribute("clothestype", clothes.getType());
-			request.setAttribute("clothesbrand", clothes.getBrand());
+			request.setAttribute("clothesType", clothes.getType());
+			request.setAttribute("clothesBrand", clothes.getBrand());
 			request.setAttribute("color", clothes.getColor());
 			request.setAttribute("gender", clothes.getGender());
 			RequestDispatcher dispatcher = request.getRequestDispatcher("editproductform.jsp");
@@ -803,6 +803,7 @@ public class userController extends HttpServlet {
 
 		int employeeID = 1;
 		int prodID = Integer.parseInt(request.getParameter("ID"));
+		System.out.println("prodid: " +prodID);
 		Product prodtmp = productDAO.getProductByID(prodID);
 		int providerID = prodtmp.getProvider().getID();
 		Employee employee = employeeDAO.getEmployee(employeeID);
@@ -814,6 +815,7 @@ public class userController extends HttpServlet {
 		String summary = request.getParameter("summary");
 		String releaseDate = request.getParameter("releaseDate");
 		String category = request.getParameter("category");
+		System.out.println("prod cate: " +category);
 
 		if (category.equals("Book")) {
 			String author = request.getParameter("author");
@@ -831,6 +833,7 @@ public class userController extends HttpServlet {
 			model.product.Phone product = new model.product.Phone(prodID, name, summary, releaseDate, category,
 					employee, providertmp, 1, phonetype, phonebrand, model, spec);
 			productDAO.editPhone(product);
+			System.out.println("edit P");
 		} else {
 			String clothestype = request.getParameter("phoneType");
 			String clothesbrand = request.getParameter("phoneBrand");
